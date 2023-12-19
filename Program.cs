@@ -72,4 +72,29 @@ class Miniräknare
             fortsätt = fortsättSvar == "ja";
         }
     }
+
+    static double UtförOperation(double tal1, double tal2, string operation)
+    {
+        if (operation == "+")
+        {
+            return tal1 + tal2;
+        }
+        else if (operation == "-")
+        {
+            return tal1 - tal2;
+        }
+        else if (operation == "*")
+        {
+            return tal1 * tal2;
+        }
+        else if (operation == "/")
+        {
+            return tal1 / tal2;
+        }
+        else
+        {
+            throw new ArgumentException("Ogiltig operation");
+        }
+
+    }
 }
