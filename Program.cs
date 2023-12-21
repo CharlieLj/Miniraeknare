@@ -5,14 +5,16 @@ class Miniräknare
 {
     static void Main()
     {
+        // Välkomsmeddelande 
         Console.WriteLine("Välkommen till Miniräknaren!");
         // skapar en lista (resultatHistorik) för att spara historiken över tidigare resultat.
         List<double> resultatHistorik = new List<double>();
 
-        // En while-loop som fortsätter att köra så länge fortsätt är sant. fortsätt används för att styra om programmet ska fortsätta att köra eller avslutas.
+        // En while-loop som fortsätter att köra så länge fortsätt är sant. 
         bool fortsätt = true;
         while (fortsätt)
         {
+            // Användaren matar in tal 
             Console.Write("Ange ett tal: ");
             double tal1;
             while (!double.TryParse(Console.ReadLine(), out tal1))
@@ -29,7 +31,7 @@ class Miniräknare
             {
                 Console.Write("Ange ett annat tal än 0: ");
 
-                // en variabel tal2 av datatypen double
+                // variabel tal2 av datatypen double
                 double tal2;
 
                 // en while-loop som fortsätter att köra så länge villkoret inom parenteserna är sant. 
@@ -38,6 +40,7 @@ class Miniräknare
                     Console.WriteLine("Ogiltig inmatning. Försök igen med ett annat tal än 0.");
                 }
 
+                // Ifall användaren skulle dela med 0 visa Ogiltig inmatning
                 if (operation == "/" && tal2 == 0)
                 {
                     Console.WriteLine("Ogiltig inmatning. Du kan inte dela med 0.");
@@ -48,6 +51,7 @@ class Miniräknare
                 double resultat = UtförOperation(tal1, tal2, operation);
                 resultatHistorik.Add(resultat);
 
+                // Visa resultat
                 Console.WriteLine($"Resultatet är: {resultat}");
             }
             else
@@ -55,9 +59,11 @@ class Miniräknare
                 Console.WriteLine("Ogiltig operation. Endast +, -, *, / är tillåtna.");
             }
 
+            // Fråga användaren om den vill visa tidigare resultat.
             Console.Write("Vill du visa tidigare resultat? (ja/nej): ");
             string visaHistorikSvar = Console.ReadLine().ToLower();
 
+            // Visa tidigare resultat
             if (visaHistorikSvar == "ja")
             {
                 Console.WriteLine("Tidigare resultat:");
@@ -67,6 +73,7 @@ class Miniräknare
                 }
             }
 
+            // Fråga användaren om den vill avsluta eller fortsätta.
             Console.Write("Vill du fortsätta? (ja/nej): ");
             string fortsättSvar = Console.ReadLine().ToLower();
             fortsätt = fortsättSvar == "ja";
